@@ -17,12 +17,14 @@ Source6:	shsucdx.exe
 # Source6-md5:	ea564329c456ff4dd3a3c21c04f5a185
 URL:		http://www.freedos.org/
 BuildRequires:	unzip
+Requires:	dosemu
+Provides:	dos
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Provides:	dos
-Requires:	dosemu
 
-%define		_dosemudir		/var/lib/dosemu
+%define		_dosemudir	/var/lib/dosemu
+# extract to lowercase
+%define		__unzip		unzip -L
 
 %description
 This package contains minimal dos for use with dosemu:
@@ -35,34 +37,36 @@ i kilka przydatnych programów.
 
 %prep
 %setup -c %{name} -q
-mv DOC doc
-mv BIN bin
-# lowercase filenames
-for i in $(find . -type f)
-do
-	mv $i $(echo $i | tr A-Z a-z)
-done
+
 rm -f bin/autoxec.bat bin/config.sys
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_dosemudir}/bootdir/freedos/doc/fdkernel
+install -d $RPM_BUILD_ROOT%{_dosemudir}/bootdir/freedos/{bin,help,nls}
 
-install bin/* $RPM_BUILD_ROOT%{_dosemudir}/bootdir/
+install bin/* $RPM_BUILD_ROOT%{_dosemudir}/bootdir
 install %{SOURCE2} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/autoexec.bat
 install %{SOURCE3} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/config.sys
 install %{SOURCE4} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/keybpl.exe
 install %{SOURCE5} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/egapl.exe
 install %{SOURCE6} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/shsucdx.exe
 
-install doc/* $RPM_BUILD_ROOT%{_dosemudir}/bootdir/freedos/doc/fdkernel
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%dir %{_dosemudir}/bootdir/freedos
-%{_dosemudir}/bootdir/*
+%doc doc/{bugs,config,contrib,history,intfns,mkboot,nls,readme,sys}.txt
 %config(noreplace) %verify(not size mtime md5) %{_dosemudir}/bootdir/autoexec.bat
 %config(noreplace) %verify(not size mtime md5) %{_dosemudir}/bootdir/config.sys
+%{_dosemudir}/bootdir/command.com
+%{_dosemudir}/bootdir/egapl.exe
+%{_dosemudir}/bootdir/install.bat
+%{_dosemudir}/bootdir/kernel.sys
+%{_dosemudir}/bootdir/keybpl.exe
+%{_dosemudir}/bootdir/shsucdx.exe
+%{_dosemudir}/bootdir/sys.com
+%dir %{_dosemudir}/bootdir/freedos
+%dir %{_dosemudir}/bootdir/freedos/bin
+%dir %{_dosemudir}/bootdir/freedos/help
+%dir %{_dosemudir}/bootdir/freedos/nls
