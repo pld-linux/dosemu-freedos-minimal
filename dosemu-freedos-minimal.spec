@@ -19,6 +19,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Provides:	dos
 Requires:	dosemu
 
+%define		_dosemudir		/var/lib/dosemu
+
 %description
 This package contains minimal dos for use with dosemu:
 FreeDOS kernel and configuration files.
@@ -30,18 +32,14 @@ i kilka przydatnych programów.
 
 %prep
 %setup -c %{name} -q
-
 rm -rf freedos
 mkdir freedos
 unzip -q -L -o %{SOURCE1} -d freedos
 
-%build
-
-%define _dosemudir	/var/lib/dosemu
-
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_dosemudir}/bootdir/freedos/doc/fdkernel
+
 install command.com $RPM_BUILD_ROOT%{_dosemudir}/bootdir/command2.com
 install kssf.com $RPM_BUILD_ROOT%{_dosemudir}/bootdir/kssf.com
 install vspawn.com $RPM_BUILD_ROOT%{_dosemudir}/bootdir/vspawn.com
@@ -50,6 +48,7 @@ install %{SOURCE3} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/config.sys
 install %{SOURCE4} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/keybpl.exe
 install %{SOURCE5} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/egapl.exe
 install %{SOURCE6} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/shsucdx.exe
+
 install freedos/bin/kernel.sys $RPM_BUILD_ROOT%{_dosemudir}/bootdir
 install freedos/doc/fdkernel/* $RPM_BUILD_ROOT%{_dosemudir}/bootdir/freedos/doc/fdkernel
 ln -sf dosemu/comcom.com $RPM_BUILD_ROOT%{_dosemudir}/bootdir/command.com
