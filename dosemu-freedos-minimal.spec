@@ -36,7 +36,7 @@ dosemu. Pakiet zawiera kernel FreeDOSa, autoexec.bat, config.sys
 i kilka przydatnych programów.
 
 %prep
-%setup -c %{name} -q
+%setup -q -c
 
 rm -f bin/autoxec.bat bin/config.sys
 
