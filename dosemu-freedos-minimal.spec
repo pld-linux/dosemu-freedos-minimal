@@ -2,7 +2,7 @@ Summary:	Minimal FreeDOS
 Summary(pl):	Minimalna wersja FreeDOSa
 Name:		dosemu-freedos-minimal
 Version:	2.0.33_16
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Emulators
 Source0:	http://dl.sourceforge.net/freedos/ke2033_16.zip
@@ -35,19 +35,27 @@ i kilka przydatnych programów.
 
 %prep
 %setup -c %{name} -q
+mv DOC doc
+mv BIN bin
+# lowercase filenames
+for i in $(find . -type f)
+do
+	mv $i $(echo $i | tr A-Z a-z)
+done
+rm -f bin/autoxec.bat bin/config.sys
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_dosemudir}/bootdir/freedos/doc/fdkernel
 
-install BIN/* $RPM_BUILD_ROOT%{_dosemudir}/bootdir/
+install bin/* $RPM_BUILD_ROOT%{_dosemudir}/bootdir/
 install %{SOURCE2} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/autoexec.bat
 install %{SOURCE3} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/config.sys
 install %{SOURCE4} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/keybpl.exe
 install %{SOURCE5} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/egapl.exe
 install %{SOURCE6} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/shsucdx.exe
 
-install DOC/* $RPM_BUILD_ROOT%{_dosemudir}/bootdir/freedos/doc/fdkernel
+install doc/* $RPM_BUILD_ROOT%{_dosemudir}/bootdir/freedos/doc/fdkernel
 
 %clean
 rm -rf $RPM_BUILD_ROOT
