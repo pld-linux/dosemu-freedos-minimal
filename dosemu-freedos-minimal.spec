@@ -2,7 +2,7 @@ Summary:	Minimal FreeDOS
 Summary(pl):	Minimalna wersja FreeDOSa
 Name:		dosemu-freedos-minimal
 Version:	2.0.26a16
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Emulators
 Source0:	http://freedos.sourceforge.net/freecom/packages/binary.zip
@@ -51,6 +51,7 @@ install %{SOURCE6} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/shsucdx.exe
 
 install freedos/bin/kernel.sys $RPM_BUILD_ROOT%{_dosemudir}/bootdir
 install freedos/doc/fdkernel/* $RPM_BUILD_ROOT%{_dosemudir}/bootdir/freedos/doc/fdkernel
+
 ln -sf dosemu/comcom.com $RPM_BUILD_ROOT%{_dosemudir}/bootdir/command.com
 
 %clean
