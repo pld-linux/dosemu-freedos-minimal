@@ -6,7 +6,9 @@ Release:	3
 License:	GPL
 Group:		Applications/Emulators
 Source0:	http://freedos.sourceforge.net/freecom/packages/binary.zip
+# Source0-md5:	438de23ba545e71b822ba510c2fc7c29
 Source1:	http://dl.sourceforge.net/freedos/ke2026a16.zip
+# Source1-md5:	5bc79b75f75bae439350248b8dfa6d08
 Source2:	autoexec2.bat
 Source3:	config2.sys
 Source4:	keybpl.exe
