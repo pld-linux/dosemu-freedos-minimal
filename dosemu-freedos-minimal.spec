@@ -12,8 +12,11 @@ Source1:	http://dl.sourceforge.net/freedos/ke2026a16.zip
 Source2:	autoexec2.bat
 Source3:	config2.sys
 Source4:	keybpl.exe
+# Source4-md5:	53e265897c9fc6aa983f12b59d9861b4
 Source5:	egapl.exe
+# Source5-md5:	226641c2370aac17d969d83e3f86a3a9
 Source6:	shsucdx.exe
+# Source6-md5:	ea564329c456ff4dd3a3c21c04f5a185
 URL:		http://www.freedos.org/
 BuildRequires:	unzip
 ExclusiveArch:	%{ix86}
