@@ -31,7 +31,7 @@ This package contains minimal dos for use with dosemu:
 FreeDOS kernel and configuration files.
 
 %description -l pl
-W pakiecie znajduje siê mimalna wersja DOSa potrzebna do uruchomienia
+W pakiecie znajduje siê mimalna wersja DOS-a potrzebna do uruchomienia
 dosemu. Pakiet zawiera kernel FreeDOSa, autoexec.bat, config.sys
 i kilka przydatnych programów.
 
