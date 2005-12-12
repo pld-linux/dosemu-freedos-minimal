@@ -27,13 +27,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		__unzip		unzip -L
 
 %description
-This package contains minimal dos for use with dosemu:
-FreeDOS kernel and configuration files.
+This package contains minimal dos for use with dosemu: FreeDOS kernel
+and configuration files.
 
 %description -l pl
-W pakiecie znajduje siê minimalna wersja DOS-a potrzebna do uruchomienia
-dosemu. Pakiet zawiera kernel FreeDOSa, autoexec.bat, config.sys
-i kilka przydatnych programów.
+W pakiecie znajduje siê minimalna wersja DOS-a potrzebna do
+uruchomienia dosemu. Pakiet zawiera kernel FreeDOSa, autoexec.bat,
+config.sys i kilka przydatnych programów.
 
 %prep
 %setup -q -c
@@ -57,8 +57,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc doc/{bugs,config,contrib,history,intfns,mkboot,nls,readme,sys}.txt
-%config(noreplace) %verify(not size mtime md5) %{_dosemudir}/bootdir/autoexec.bat
-%config(noreplace) %verify(not size mtime md5) %{_dosemudir}/bootdir/config.sys
+%config(noreplace) %verify(not md5 mtime size) %{_dosemudir}/bootdir/autoexec.bat
+%config(noreplace) %verify(not md5 mtime size) %{_dosemudir}/bootdir/config.sys
 %{_dosemudir}/bootdir/command.com
 %{_dosemudir}/bootdir/egapl.exe
 %{_dosemudir}/bootdir/install.bat
