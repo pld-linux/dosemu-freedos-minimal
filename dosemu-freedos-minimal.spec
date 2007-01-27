@@ -19,7 +19,7 @@ URL:		http://www.freedos.org/
 BuildRequires:	unzip
 Requires:	dosemu
 Provides:	dos
-ExclusiveArch:	%{ix86}
+ExclusiveArch:	%{ix86} %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_dosemudir	/var/lib/dosemu
