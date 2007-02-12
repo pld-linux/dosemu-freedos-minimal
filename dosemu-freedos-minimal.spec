@@ -1,5 +1,5 @@
 Summary:	Minimal FreeDOS
-Summary(pl.UTF-8):   Minimalna wersja FreeDOSa
+Summary(pl.UTF-8):	Minimalna wersja FreeDOSa
 Name:		dosemu-freedos-minimal
 Version:	2.0.33_16
 Release:	2
