@@ -1,5 +1,5 @@
 Summary:	Minimal FreeDOS
-Summary(pl):	Minimalna wersja FreeDOSa
+Summary(pl.UTF-8):   Minimalna wersja FreeDOSa
 Name:		dosemu-freedos-minimal
 Version:	2.0.33_16
 Release:	2
@@ -30,10 +30,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This package contains minimal dos for use with dosemu: FreeDOS kernel
 and configuration files.
 
-%description -l pl
-W pakiecie znajduje siê minimalna wersja DOS-a potrzebna do
+%description -l pl.UTF-8
+W pakiecie znajduje siÄ™ minimalna wersja DOS-a potrzebna do
 uruchomienia dosemu. Pakiet zawiera kernel FreeDOSa, autoexec.bat,
-config.sys i kilka przydatnych programów.
+config.sys i kilka przydatnych programÃ³w.
 
 %prep
 %setup -q -c
