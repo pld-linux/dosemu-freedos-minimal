@@ -2,7 +2,7 @@ Summary:	Minimal FreeDOS
 Summary(pl.UTF-8):	Minimalna wersja FreeDOSa
 Name:		dosemu-freedos-minimal
 Version:	2.0.33_16
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Emulators
 Source0:	http://dl.sourceforge.net/freedos/ke2033_16.zip
@@ -42,7 +42,7 @@ rm -f bin/autoxec.bat bin/config.sys
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_dosemudir}/bootdir/freedos/{bin,help,nls}
+install -d $RPM_BUILD_ROOT%{_dosemudir}/bootdir/freedos/{bin,doc,help,nls}
 
 install bin/* $RPM_BUILD_ROOT%{_dosemudir}/bootdir
 install %{SOURCE2} $RPM_BUILD_ROOT%{_dosemudir}/bootdir/autoexec.bat
@@ -68,5 +68,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_dosemudir}/bootdir/sys.com
 %dir %{_dosemudir}/bootdir/freedos
 %dir %{_dosemudir}/bootdir/freedos/bin
+%dir %{_dosemudir}/bootdir/freedos/doc
 %dir %{_dosemudir}/bootdir/freedos/help
 %dir %{_dosemudir}/bootdir/freedos/nls
