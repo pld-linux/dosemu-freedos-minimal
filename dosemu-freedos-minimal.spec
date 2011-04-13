@@ -1,11 +1,11 @@
 Summary:	Minimal FreeDOS
 Summary(pl.UTF-8):	Minimalna wersja FreeDOSa
 Name:		dosemu-freedos-minimal
-Version:	2.0.33_16
-Release:	3
+Version:	2.0.39
+Release:	1
 License:	GPL
 Group:		Applications/Emulators
-Source0:	http://dl.sourceforge.net/freedos/ke2033_16.zip
+Source0:	http://dl.sourceforge.net/freedos/ke2039_86f32.zip
 # Source0-md5:	07a702a337d6c5b1ae0709ce39e29212
 Source2:	autoexec2.bat
 Source3:	config2.sys
