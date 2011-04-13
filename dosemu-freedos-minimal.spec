@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Emulators
 Source0:	http://dl.sourceforge.net/freedos/ke2039_86f32.zip
-# Source0-md5:	07a702a337d6c5b1ae0709ce39e29212
+# Source0-md5:	1e1c8abfd8db425a18fd5bce389c752a
 Source2:	autoexec2.bat
 Source3:	config2.sys
 Source4:	keybpl.exe
@@ -56,14 +56,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc/{bugs,config,contrib,history,intfns,mkboot,nls,readme,sys}.txt
+%doc docs/{bugs,config,contrib,history,intfns,mkboot,nls,readme,sys}.txt
 %config(noreplace) %verify(not md5 mtime size) %{_dosemudir}/bootdir/autoexec.bat
 %config(noreplace) %verify(not md5 mtime size) %{_dosemudir}/bootdir/config.sys
-%{_dosemudir}/bootdir/command.com
+%{_dosemudir}/bootdir/country.sys
 %{_dosemudir}/bootdir/egapl.exe
 %{_dosemudir}/bootdir/install.bat
 %{_dosemudir}/bootdir/kernel.sys
 %{_dosemudir}/bootdir/keybpl.exe
+%{_dosemudir}/bootdir/kwc8632.map
 %{_dosemudir}/bootdir/shsucdx.exe
 %{_dosemudir}/bootdir/sys.com
 %dir %{_dosemudir}/bootdir/freedos
